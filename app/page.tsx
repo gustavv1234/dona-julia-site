@@ -68,10 +68,6 @@ const gallery: MediaItem[] = [
   { src: "/images/gallery-single-outdoor.jpg", title: "Cajuína em ambiente externo" },
 ];
 
-function cn(...cls: (string | false | null | undefined)[]) {
-  return cls.filter(Boolean).join(" ");
-}
-
 function Lightbox({
   item,
   onClose,
@@ -241,7 +237,6 @@ function InfiniteCarousel({
 
 export default function HomePage() {
   const [selected, setSelected] = useState<MediaItem | null>(null);
-
   const mainProducts = products;
 
   return (
@@ -363,8 +358,246 @@ export default function HomePage() {
         </section>
 
         {/* HISTÓRIA */}
-        {/* resto do arquivo permanece igual, não precisa de mudança nas imagens pois já foram trocadas acima */}
-        {/* ... */}
+        <section id="historia" className="mt-20 scroll-mt-28">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-[2rem] border border-black/5 bg-white/70 p-7 shadow-[0_18px_55px_rgba(0,0,0,0.08)]">
+              <h2 className="text-2xl font-semibold sm:text-3xl">
+                História e identidade
+              </h2>
+
+              <p className="mt-4 text-sm text-black/70 sm:text-base">
+                A Cajuína Dona Júlia nasce do respeito ao caju e à tradição do
+                Piauí. A produção é cuidadosa para preservar a essência do
+                produto: aparência límpida, cor âmbar e sabor limpo.
+              </p>
+
+              <p className="mt-4 text-sm text-black/70 sm:text-base">
+                Da seleção da fruta ao envase, cada etapa reforça o compromisso
+                com qualidade e consistência — valorizando a cultura e a origem.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["Tradição", "Artesanal", "Piauí", "Identidade"].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full bg-brand-sand px-3 py-1 text-xs font-semibold text-black/70"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-black/5 bg-white/70 p-7 shadow-[0_18px_55px_rgba(0,0,0,0.08)]">
+              <h3 className="text-lg font-semibold sm:text-xl">Nossa essência</h3>
+
+              <p className="mt-4 text-sm text-black/70 sm:text-base">
+                Produto não fermentado e não alcoólico, feito a partir de suco
+                de caju clarificado, com foco na cor âmbar e no perfil leve do
+                sabor.
+              </p>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {[
+                  {
+                    t: "Clarificação",
+                    d: "Aparência límpida e cor âmbar característica.",
+                  },
+                  {
+                    t: "Perfil leve",
+                    d: "Não fermentado e não alcoólico.",
+                  },
+                  { t: "Sabor do caju", d: "Sem adição de açúcar." },
+                  { t: "Padrão", d: "Cuidado do preparo ao envase." },
+                ].map((i) => (
+                  <div
+                    key={i.t}
+                    className="rounded-2xl border border-black/5 bg-white p-5"
+                  >
+                    <p className="text-sm font-semibold">{i.t}</p>
+                    <p className="mt-2 text-sm text-black/70">{i.d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PROCESSO */}
+        <section id="processo" className="mt-20 scroll-mt-28">
+          <div className="rounded-[2rem] border border-black/5 bg-white/70 p-7 shadow-[0_18px_55px_rgba(0,0,0,0.08)]">
+            <h2 className="text-2xl font-semibold sm:text-3xl">Processo</h2>
+            <p className="mt-4 text-sm text-black/70 sm:text-base">
+              Da seleção do caju ao envase: um caminho feito com cuidado para
+              garantir aparência límpida, cor âmbar e padrão de qualidade em
+              cada garrafa.
+            </p>
+
+            <div className="mt-7 grid gap-4 md:grid-cols-4">
+              {[
+                {
+                  t: "Seleção",
+                  d: "Escolha do caju e preparo da matéria-prima.",
+                },
+                { t: "Extração", d: "Obtenção do suco e filtragem inicial." },
+                {
+                  t: "Clarificação",
+                  d: "Limpeza do suco para ficar límpido e âmbar.",
+                },
+                {
+                  t: "Envase",
+                  d: "Engarrafamento e rotulagem com cuidado.",
+                },
+              ].map((s) => (
+                <div
+                  key={s.t}
+                  className="rounded-2xl border border-black/5 bg-white p-5"
+                >
+                  <p className="text-sm font-semibold">{s.t}</p>
+                  <p className="mt-2 text-sm text-black/70">{s.d}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 grid items-start gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+              <div className="aspect-video w-full overflow-hidden rounded-2xl border border-black/5 bg-black/5 shadow-[0_14px_40px_rgba(0,0,0,0.08)]">
+                <iframe
+                  className="h-full w-full"
+                  src="https://www.youtube.com/embed/Wx1iDm5VM5Y"
+                  title="Processo de produção da Cajuína Dona Júlia"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="space-y-3 text-sm text-black/70">
+                <p className="font-semibold text-black/85">
+                  Veja o processo na prática
+                </p>
+                <p>
+                  No vídeo, você acompanha a seleção do caju, a extração do
+                  suco, a clarificação e o envase, destacando a cor âmbar, a
+                  limpeza da bebida e o cuidado artesanal em cada etapa.
+                </p>
+                <p>
+                  É uma forma de mostrar, em detalhes, o compromisso da Cajuína
+                  Dona Júlia com a qualidade e a tradição do Piauí.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* A MARCA */}
+        <section id="marca" className="mt-20 scroll-mt-28">
+          <div className="rounded-[2rem] border border-black/5 bg-white/70 p-7 shadow-[0_18px_55px_rgba(0,0,0,0.08)]">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-2xl font-semibold sm:text-3xl">A Marca</h2>
+                <p className="mt-2 max-w-prose text-sm text-black/70 sm:text-base">
+                  A Cajuína Dona Júlia une tradição familiar, cuidado artesanal e
+                  orgulho nordestino para apresentar uma bebida que representa o
+                  Piauí no Brasil.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-7 grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl border border-black/5 bg-white p-5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-black/55">
+                  Missão
+                </p>
+                <p className="mt-2 text-sm text-black/75">
+                  Produzir cajuína de qualidade, valorizando o caju, a cultura do
+                  Piauí e a tradição artesanal, entregando uma bebida limpa,
+                  autêntica e reconhecível.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-black/5 bg-white p-5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-black/55">
+                  Visão
+                </p>
+                <p className="mt-2 text-sm text-black/75">
+                  Ser referência nacional em cajuína, levando a identidade do
+                  Piauí para novos mercados e tornando a Dona Júlia sinônimo de
+                  tradição e confiança.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-black/5 bg-white p-5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-black/55">
+                  Valores
+                </p>
+                <ul className="mt-2 space-y-1 text-sm text-black/75">
+                  <li>Respeito à origem e ao produtor.</li>
+                  <li>Qualidade em cada etapa do processo.</li>
+                  <li>Transparência com parceiros e consumidores.</li>
+                  <li>Orgulho da cultura nordestina.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-7 grid gap-6 md:grid-cols-2">
+              <div className="rounded-2xl border border-black/5 bg-white p-5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-black/55">
+                  Identidade visual
+                </p>
+                <p className="mt-2 text-sm text-black/75">
+                  A cor âmbar da bebida, os rótulos com referência regional e as
+                  embalagens em kraft foram pensados para traduzir simplicidade,
+                  autenticidade e presença de marca.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-black/5 bg-white p-5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-black/55">
+                  Reconhecimento
+                </p>
+                <p className="mt-2 text-sm text-black/75">
+                  A Cajuína Dona Júlia participa de eventos, feiras e encontros
+                  culturais, fortalecendo sua presença no Piauí e em outros
+                  estados por meio de parcerias, degustações e ações
+                  promocionais.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PRODUTOS */}
+        <section id="produtos" className="mt-20 scroll-mt-28">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-semibold sm:text-3xl">
+                Linha de produtos
+              </h2>
+              <p className="mt-2 text-sm text-black/70 sm:text-base">
+                Conheça as principais apresentações da Cajuína Dona Júlia.
+              </p>
+            </div>
+
+            <a
+              href="#contato"
+              className="inline-flex w-fit rounded-2xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold hover:bg-black/5"
+            >
+              Falar com a gente
+            </a>
+          </div>
+
+          <div className="mt-8 rounded-[2rem] border border-black/5 bg-white/50 p-4 shadow-[0_18px_55px_rgba(0,0,0,0.06)] sm:p-6">
+            <p className="text-xs font-semibold uppercase tracking-wide text-black/55">
+              Linha principal
+            </p>
+            <InfiniteCarousel items={mainProducts} onOpen={(i) => setSelected(i)} />
+            <p className="mt-4 text-xs text-black/55">
+              As imagens representam produtos reais da marca, em diferentes
+              apresentações.
+            </p>
+          </div>
+        </section>
+
         {/* GALERIA */}
         <section id="galeria" className="mt-20 scroll-mt-28">
           <div className="flex items-end justify-between gap-4">
@@ -404,7 +637,56 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CONTATO (sem imagens, mantido igual) */}
+        {/* CONTATO */}
+        <section id="contato" className="mt-20 scroll-mt-28">
+          <div className="rounded-[2rem] border border-black/5 bg-white/70 p-7 shadow-[0_18px_55px_rgba(0,0,0,0.08)]">
+            <h2 className="text-2xl font-semibold sm:text-3xl">Contato</h2>
+            <p className="mt-3 text-sm text-black/70 sm:text-base">
+              Fale com a gente para pedidos, parcerias e informações.
+            </p>
+
+            <div className="mt-7 grid gap-4 md:grid-cols-2">
+              <div>
+                <label className="block text-sm font-medium">Nome</label>
+                <input
+                  className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/30"
+                  placeholder="Seu nome"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium">
+                  E-mail ou WhatsApp
+                </label>
+                <input
+                  className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/30"
+                  placeholder="(xx) xxxxx-xxxx"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium">Mensagem</label>
+                <textarea
+                  className="mt-2 min-h-[140px] w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-brand-orange/30"
+                  placeholder="Escreva sua mensagem..."
+                />
+              </div>
+
+              <div className="md:col-span-2 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  className="rounded-2xl bg-brand-orange px-7 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(235,102,17,0.28)] hover:brightness-95"
+                >
+                  Enviar
+                </button>
+                <p className="text-xs text-black/55">
+                  Preencha os dados para entrar em contato com a Cajuína Dona
+                  Júlia. O retorno é feito pelos canais informados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <Footer />
       </main>

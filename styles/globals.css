@@ -1,36 +1,27 @@
 @import "tailwindcss";
 
-/* Paleta e identidade */
-:root {
-  --bg: #fff6ea;      /* creme */
-  --text: #1f1b16;    /* marrom bem escuro */
-  --card: rgba(255, 255, 255, 0.78);
-
-  --amber: #f2b23d;   /* âmbar (bebida) */
-  --orange: #f07b1a;  /* caju laranja */
-  --red: #d94b2b;     /* caju vermelho */
-  --leaf: #2f6f3e;    /* folha */
+/* Tailwind v4 design tokens (cores tiradas das suas fotos) */
+@theme {
+  --color-brand-cream: #fff6e7; /* fundo claro */
+  --color-brand-sand:  #fde2b8; /* areia/baunilha */
+  --color-brand-amber: #f7a740; /* âmbar */
+  --color-brand-gold:  #d9b558; /* dourado */
+  --color-brand-orange:#eb6611; /* laranja rótulo */
+  --color-brand-red:   #a7413a; /* vermelho caju */
+  --color-brand-kraft: #ac9578; /* kraft caixa */
+  --color-brand-leaf:  #3f5635; /* verde folha */
+  --color-brand-ink:   #1f1b16; /* texto escuro */
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  color: var(--color-brand-ink);
+  background:
+    radial-gradient(900px 400px at 20% 10%, color-mix(in srgb, var(--color-brand-amber) 20%, transparent), transparent 70%),
+    radial-gradient(900px 400px at 85% 15%, color-mix(in srgb, var(--color-brand-orange) 18%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--color-brand-cream), #ffffff 40%, var(--color-brand-cream));
 }
 
-/* Tipografia (layout.tsx injeta as fontes via CSS variables) */
-body {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-}
-
-h1, h2, h3 {
-  font-family: var(--font-display), var(--font-sans), ui-sans-serif, system-ui;
-}
-
-::selection {
-  background: rgba(240, 123, 26, 0.25);
-}
+/* pequenos ajustes base */
+:focus-visible { outline: 2px solid var(--color-brand-orange); outline-offset: 3px; }

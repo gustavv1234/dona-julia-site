@@ -13,15 +13,33 @@
   --color-brand-ink:   #1f1b16; /* texto escuro */
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   color: var(--color-brand-ink);
   background:
-    radial-gradient(900px 400px at 20% 10%, color-mix(in srgb, var(--color-brand-amber) 20%, transparent), transparent 70%),
-    radial-gradient(900px 400px at 85% 15%, color-mix(in srgb, var(--color-brand-orange) 18%, transparent), transparent 70%),
-    linear-gradient(180deg, var(--color-brand-cream), #ffffff 40%, var(--color-brand-cream));
+    radial-gradient(
+      900px 400px at 15% 0%,
+      color-mix(in srgb, var(--color-brand-amber) 40%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      900px 400px at 100% 10%,
+      color-mix(in srgb, var(--color-brand-orange) 40%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-brand-cream) 50%, var(--color-brand-amber) 50%),
+      #ffe1b3 40%,
+      color-mix(in srgb, var(--color-brand-cream) 55%, var(--color-brand-orange) 45%)
+    );
 }
 
 /* pequenos ajustes base */
-:focus-visible { outline: 2px solid var(--color-brand-orange); outline-offset: 3px; }
+:focus-visible {
+  outline: 2px solid var(--color-brand-orange);
+  outline-offset: 3px;
+}

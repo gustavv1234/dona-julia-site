@@ -469,7 +469,7 @@ export default function HomePage() {
               <div className="aspect-video w-full overflow-hidden rounded-2xl border border-black/5 bg-black/5 shadow-[0_14px_40px_rgba(0,0,0,0.08)]">
                 <iframe
                   className="h-full w-full"
-                  src="https://www.youtube.com/embed/SEU_VIDEO_ID"
+                  src="https://www.youtube.com/embed/Wx1iDm5VM5Y"
                   title="Processo de produção da Cajuína Dona Júlia"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
